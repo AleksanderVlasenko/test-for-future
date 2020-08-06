@@ -1,0 +1,27 @@
+﻿Инструкция по запуску
+======================
+1. Скопируйте папку vlasenko в DocumentRoot сервера HTTP Apache (местоположение папки DocumentRoot можно посмотреть
+в файле конфигурации сервера, обычно для Линукса это /var/www/html/, а для Windows это c:/Server/data/htdocs).
+
+2. Сформируйте в базе данных MySQL базу с именем av_future путем импорта прилагаемого файла av_future.sql или создайте 
+базу данных вручную с любым другим именем, изменив параметр dbname в файле vlasenko/settings.php (см. ниже), и сделайте
+в этой базе таблицу articles с нужными полями (см. ниже).   
+
+3. Для запуска укажите в браузере путь .../vlasenko/public/ 
+например http://localhost/vlasenko/public/
+________________________
+Для данного тестового примера настройки доступа к БД задаются в файле vlasenko/settings.php и являются следующими:
+
+host = localhost
+dbname = av_future
+user = vlasenko_future
+password не используется
+________________________
+В базе данных используется одна таблица с именем articles и имеющая следующие поля:
+
+id INT (A_I PRIMARY)
+name VARCHAR 255
+text TEXT
+created_at DATETIME (значение по умолчанию CURRENT_TIMESTAMP)
+________________________
+
